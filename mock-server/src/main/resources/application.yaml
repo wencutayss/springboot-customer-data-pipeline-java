@@ -1,0 +1,15 @@
+server:
+  port: 5000
+
+spring:
+  application:
+    name: mock-server
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always

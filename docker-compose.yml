@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: customer_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+
+  mock-server:
+    build: ./mock-server
+    container_name: mock-server
+    ports:
+      - "5000:5000"
+    depends_on:
+      - postgres
+
+  pipeline-service:
+    build: ./pipeline-service
+    container_name: pipeline-service
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+      - mock-server
