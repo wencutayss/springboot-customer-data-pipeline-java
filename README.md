@@ -56,6 +56,24 @@ A data ingestion service that fetches data from the mock server and stores it in
 - **Description**: Application metrics
 - **Example**: `curl http://localhost:5000/actuator/metrics`
 
+### Swagger/OpenAPI Endpoints (Mock Server)
+
+#### GET /swagger-ui.html
+- **Description**: Swagger UI interface for API documentation
+- **Example**: Open in browser: `http://localhost:5000/swagger-ui.html`
+
+#### GET /v3/api-docs
+- **Description**: OpenAPI 3.0 specification in JSON format
+- **Example**: `curl http://localhost:5000/v3/api-docs`
+
+#### GET /v3/api-docs/swagger-config
+- **Description**: Swagger configuration
+- **Example**: `curl http://localhost:5000/v3/api-docs/swagger-config`
+
+#### GET /v3/api-docs/{group}
+- **Description**: OpenAPI specification for specific group
+- **Example**: `curl http://localhost:5000/v3/api-docs/public`
+
 ## Pipeline Service (Port 8000)
 
 ### Data Pipeline Endpoints
@@ -102,6 +120,24 @@ A data ingestion service that fetches data from the mock server and stores it in
 - **Description**: Application metrics including database metrics
 - **Example**: `curl http://localhost:8000/actuator/metrics`
 
+### Swagger/OpenAPI Endpoints (Pipeline Service)
+
+#### GET /swagger-ui.html
+- **Description**: Swagger UI interface for API documentation
+- **Example**: Open in browser: `http://localhost:8000/swagger-ui.html`
+
+#### GET /v3/api-docs
+- **Description**: OpenAPI 3.0 specification in JSON format
+- **Example**: `curl http://localhost:8000/v3/api-docs`
+
+#### GET /v3/api-docs/swagger-config
+- **Description**: Swagger configuration
+- **Example**: `curl http://localhost:8000/v3/api-docs/swagger-config`
+
+#### GET /v3/api-docs/{group}
+- **Description**: OpenAPI specification for specific group
+- **Example**: `curl http://localhost:8000/v3/api-docs/public`
+
 ## Getting Started
 
 ### Prerequisites
@@ -139,6 +175,10 @@ This will start:
    ```bash
    curl "http://localhost:8000/api/customers?page=1&limit=10"
    ```
+
+4. Access Swagger UI for API documentation:
+   - Mock Server: http://localhost:5000/swagger-ui.html
+   - Pipeline Service: http://localhost:8000/swagger-ui.html
 
 ## Architecture
 
